@@ -1,0 +1,24 @@
+{
+    "name": "filippo-toso/laravel-modules",
+    "description": "A simple library to build modules for Laravel applications",
+    "authors": [{
+        "name": "Filippo Toso",
+        "email": "filippo.toso@creativepark.it"
+    }],
+    "require": {
+        "php": "^7.0 || ^8.0 || ^9.0",
+        "illuminate/support": ">=8.0"
+    },
+    "autoload": {
+        "psr-4": {
+            "FilippoToso\\LaravelModules\\": "src"
+        }
+    },
+    "extra": {
+        "laravel": {
+            "aliases": {
+                "Module": "FilippoToso\\LaravelModules\\Facades\\Module"
+            }
+        }
+    }
+}
