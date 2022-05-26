@@ -5,6 +5,7 @@
         "name": "Filippo Toso",
         "email": "filippo.toso@creativepark.it"
     }],
+    "license": "MIT",
     "require": {
         "php": "^7.0 || ^8.0 || ^9.0",
         "illuminate/support": ">=8.0"
