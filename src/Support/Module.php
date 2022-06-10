@@ -149,7 +149,7 @@ class Module
      */
     public function doAction($name, ...$args)
     {
-        foreach ($this->actions[$name] as $actions) {
+        foreach ($this->actions[$name] ?? [] as $actions) {
             foreach ($actions as $action) {
                 $action->do(...$args);
             }
@@ -200,7 +200,7 @@ class Module
      */
     public function applyFilter($name, $value, ...$args)
     {
-        foreach ($this->filters[$name] as $filters) {
+        foreach ($this->filters[$name] ?? [] as $filters) {
             foreach ($filters as $filter) {
                 $value = $filter->apply($value, ...$args);
             }
