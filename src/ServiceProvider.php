@@ -127,7 +127,7 @@ abstract class ServiceProvider extends BaseServiceProvider
      */
     protected function loadMigrations()
     {
-        if (!is_dir($folder = $this->directory . '/migrations')) {
+        if (!is_dir($folder = $this->directory . '/resources/migrations')) {
             return;
         }
 
@@ -216,8 +216,6 @@ abstract class ServiceProvider extends BaseServiceProvider
                     $commands[] = $class;
                 }
             }
-
-            return $commands;
         }
 
         return $commands;
