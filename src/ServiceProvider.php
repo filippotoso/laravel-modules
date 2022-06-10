@@ -206,7 +206,7 @@ abstract class ServiceProvider extends BaseServiceProvider
             $classes = static::files($directory, function ($file) use ($directory, $namespace) {
                 $pathname = $file->getPathname();
                 $path = dirname($pathname) . DIRECTORY_SEPARATOR . basename($pathname, '.' . pathinfo($pathname, PATHINFO_EXTENSION));
-                $class = $namespace . '\\' . substr($path, strlen($directory) + 1);
+                $class = $namespace . '\\Commands\\' . substr($path, strlen($directory) + 1);
                 $class = str_replace('/', '\\', $class);
                 return $class;
             });
