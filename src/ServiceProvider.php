@@ -268,10 +268,11 @@ abstract class ServiceProvider extends BaseServiceProvider
         $this->publishConfiguration();
 
         if ($this->isModuleEnabled()) {
-            $this->loadAndPublishTranslations();
-            $this->loadAndPublishViews();
+            $this->loadRoutes();
             $this->loadCommands();
             $this->loadMigrations();
+            $this->loadAndPublishViews();
+            $this->loadAndPublishTranslations();
 
             $this->bootModule();
         }
