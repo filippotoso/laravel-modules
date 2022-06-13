@@ -141,13 +141,13 @@ class Module
     }
 
     /**
-     * Executes an action
+     * Execute an action
      *
      * @param string $name
      * @param mixed ...$args
      * @return void
      */
-    public function doAction($name, ...$args)
+    public function action($name, ...$args)
     {
         foreach ($this->actions[$name] ?? [] as $actions) {
             foreach ($actions as $action) {
@@ -198,7 +198,7 @@ class Module
      * @param mixed ...$args
      * @return void
      */
-    public function applyFilter($name, $value, ...$args)
+    public function filter($name, $value, ...$args)
     {
         foreach ($this->filters[$name] ?? [] as $filters) {
             foreach ($filters as $filter) {
