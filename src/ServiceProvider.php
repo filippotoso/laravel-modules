@@ -89,7 +89,7 @@ abstract class ServiceProvider extends BaseServiceProvider
 
         $name = Arr::last(explode('\\', $this->namespace));
 
-        $this->slug = $this->slug ?? Str::slug($name);
+        $this->slug = $this->slug ?? Str::slug(Str::snake($name));
 
         $this->config = $this->config ?? $this->slug;
         $this->viewsName = $this->viewsName ?? static::VIEW_PREFIX . $this->slug;
