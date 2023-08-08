@@ -196,7 +196,7 @@ class Module
      *
      * @param string $name
      * @param mixed ...$args
-     * @return void
+     * @return mixed
      */
     public function filter($name, $value, ...$args)
     {
