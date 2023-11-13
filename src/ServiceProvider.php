@@ -8,6 +8,7 @@ use FilippoToso\LaravelModules\Support\Module;
 use Illuminate\Support\Arr;
 use Illuminate\Support\Facades\App;
 use Illuminate\Support\Facades\Blade;
+use Illuminate\Support\Facades\Route;
 use Illuminate\Support\ServiceProvider as BaseServiceProvider;
 use Illuminate\Support\Str;
 use ReflectionClass;
@@ -105,18 +106,21 @@ abstract class ServiceProvider extends BaseServiceProvider
      */
     protected function loadRoutes()
     {
-        $files = [
-            $this->directory . '/resources/routes/api.php',
-            $this->directory . '/resources/routes/console.php',
-            $this->directory . '/resources/routes/web.php',
-        ];
+        $file = $this->directory . '/resources/routes/api.php';
 
-        foreach ($files as $file) {
-            if (!is_readable($file)) {
-                continue;
-            }
+        if (is_readable($file)) {
+            Route::prefix('api')
+                ->middleware('api')
+                ->namespace($this->namespace)
+                ->group($file);
+        }
 
-            $this->loadRoutesFrom($file);
+        $file = $this->directory . '/resources/routes/web.php';
+
+        if (is_readable($file)) {
+            Route::middleware('web')
+                ->namespace($this->namespace)
+                ->group($file);
         }
     }
 
